@@ -228,6 +228,7 @@ function viewVideo(video) {
   } else {
     thumbnailImg.style.display = "block";
     thumbnailImg.src = video.thumbnail_url;
+    // thumbnailImg.src = `${video.thumbnail_url}?v=${Date.now()}`;
   }
 
   const downloadButton = document.getElementById("download-button");
