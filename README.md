@@ -1,6 +1,6 @@
-# learn-file-storage-s3-golang-starter (Tubely)
+# Tubely
 
-This repo contains the starter code for the Tubely application - the #1 tool for engagement bait - for the "Learn File Storage" [course](https://boot.dev/courses/learn-file-storage-golang) on [boot.dev](https://boot.dev)
+This repo contains the starter code for the Tubely application - the #1 tool for engagement bait 
 
 ## Quickstart
 
@@ -60,6 +60,3 @@ You'll need to update values in the `.env` file to match your configuration, but
 go run .
 ```
 
-- You should see a new database file `tubely.db` created in the root directory.
-- You should see a new `assets` directory created in the root directory, this is where the images will be stored.
-- You should see a link in your console to open the local web page.

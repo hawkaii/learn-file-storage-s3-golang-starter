@@ -189,7 +189,7 @@ func (cfg *apiConfig) handlerUploadVideo(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	// First, create the bucket,key format URL
-	videoURL := fmt.Sprintf("%s,%s", cfg.s3Bucket, s3key)
+	videoURL := cfg.s3CfDistribution + fmt.Sprintf("/%s", s3key)
 	fmt.Println("Video URL:", videoURL)
 
 	// Store the bucket,key format in dbVideo
@@ -202,15 +202,8 @@ func (cfg *apiConfig) handlerUploadVideo(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
-	// Generate signed URL only for the response
-	responseVideo, err := cfg.dbVideoToSignedVideo(dbVideo)
-	if err != nil {
-		respondWithError(w, http.StatusInternalServerError, "Couldn't sign video", err)
-		return
-	}
-
 	fmt.Println("Video uploaded to S3:", videoURL)
 
-	respondWithJSON(w, http.StatusOK, responseVideo)
+	respondWithJSON(w, http.StatusOK, dbVideo)
 
 }
